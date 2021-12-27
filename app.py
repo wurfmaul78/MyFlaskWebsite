@@ -1,11 +1,11 @@
-from flask import Flask
+from flask import Flask, url_for, render_template
 from markupsafe import escape
 
 app = Flask (__name__)
 
 @app.route("/")
 def home():
-    return "<h1>Welcome on Gerhard Posch&#39;s Website</h1><p>This is where</p>"
+    return render_template("index.html")
 
 @app.route("/name/<ags>")
 def agskey(ags):
