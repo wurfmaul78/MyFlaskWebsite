@@ -1,0 +1,17 @@
+### Moegliche Datensaetze
+
+kennung
+kennungInhalt
+version
+nameKurz
+nameLang
+nameTechnisch
+herausgebernameLang
+herausgebernameKurz
+beschreibung
+versionBeschreibung
+aenderungZurVorversion
+handbuchVersion
+xoevHandbuch
+gueltigAb
+bezugsorte
