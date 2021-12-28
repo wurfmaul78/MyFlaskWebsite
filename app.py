@@ -7,12 +7,13 @@ app = Flask (__name__)
 def home():
     return render_template("index.html")
 
-@app.route("/name/<ags>")
+@app.route("/ags/<ags>")
 def agskey(ags):
-    if ags == "Gerhard":
-        return f"Guten Tag Eure Koenigliche Hoheit, {escape(ags)}"
-    else:
-        return f"Guten Tag, {escape(ags)}"
+    try:
+        ags = (int(ags))
+        return f"Ja, ein Integer {escape(ags)}"
+    except:
+        return f"Not possible! <b>{escape(ags)}</b> is not type integer."
 
 if "__name__"  == "__main__":
     app.run()
