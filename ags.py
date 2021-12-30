@@ -2,13 +2,15 @@
 import requests, json
 
 AGSSource  = "https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2011-04-01/download/AGS_2011-04-01.json"
-AGSLoad = requests.get(AGSSource)
-AGSJSON = AGSLoad.json()
-AGSLoad.close()
 
-for data in AGSJSON['metadaten']:
-    if ('herausgebernameLang') in data:
-        Herausgeber = (AGSJSON['metadaten']['herausgebernameLang'])
+def herausgeber():
+    AGSLoad = requests.get(AGSSource)
+    AGSJSON = AGSLoad.json()
+    AGSLoad.close()
+    for data in AGSJSON['metadaten']:
+        if ('herausgebernameLang') in data:
+            Herausgeber = (AGSJSON['metadaten']['herausgebernameLang'])
+    return (Herausgeber)
 
 
 def byplace(place):
@@ -38,6 +40,7 @@ def bykey(key):
 if __name__ == ('__main__'):
     #print(byplace('Linz am Rhein'))
     print(bykey('07138041'))
+    print (herausgeber())
    
 
    #Dictionary aus Liste bauen
