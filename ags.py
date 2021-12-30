@@ -18,19 +18,25 @@ def byplace(place):
     AGSLoad.close()
     for data in AGSJSON['daten']:
         if place in data[1]:
+            data = json.dumps(data)
             return(data)
+    else:
+        return(f'Your Request {place} does not exist or is wrong written. Please try again :-)')
 
-def bykey(place):
+def bykey(key):
     AGSLoad = requests.get(AGSSource, timeout=5)
     AGSLoad.encoding='utf-8'
     AGSJSON = AGSLoad.json()
     AGSLoad.close()
     for data in AGSJSON['daten']:
-        if place in data[0]:
+        if key in data[0]:
+            data = json.dumps(data)
             return(data)
+    else:
+        return(f'Your Request {key} does not exists or is not numeric. Please try again :-)')
 
 if __name__ == ('__main__'):
-    print(byplace('Linz am Rhein'))
+    #print(byplace('Linz am Rhein'))
     print(bykey('07138041'))
    
 
