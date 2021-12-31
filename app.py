@@ -4,6 +4,12 @@ from ags import bykey,byplace
 
 app = Flask (__name__)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    # https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/
+    return render_template('404.html'), 404
+
+
 @app.route("/")
 def home():
     return render_template("index.html")
