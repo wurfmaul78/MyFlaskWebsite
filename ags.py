@@ -4,7 +4,11 @@ import requests, json
 AGSSource  = "https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2011-04-01/download/AGS_2011-04-01.json"
 
 def herausgeber():
-    AGSLoad = requests.get(AGSSource)
+    try:
+        AGSLoad = requests.get(AGSSource)
+    except:
+        info = {'info':'Service temporarly unaivalable, please try later.'}
+        return (info)
     AGSJSON = AGSLoad.json()
     AGSLoad.close()
     for data in AGSJSON['metadaten']:
@@ -13,42 +17,47 @@ def herausgeber():
     return (Herausgeber)
 
 def makeDict(Liste):
-    AGS_Dict = {"Data":Liste,"Source":herausgeber()}
+    AGS_Dict = {"Data":Liste,"Source":herausgeber(),"info":"gerhard.posch@outlook.com"}
     return AGS_Dict
 
 
 def byplace(place):
-    AGSLoad = requests.get(AGSSource, timeout=5)
+    try:
+        AGSLoad = requests.get(AGSSource, timeout=5)
+    except:
+        info = {'info':'Service temporarly unaivalable, please try later.'}
+        return (info)
     AGSJSON = AGSLoad.json()
     AGSLoad.close()
     for data in AGSJSON['daten']:
         if place in data[1]:
             AGS_Dict = makeDict(data)
-            print (AGS_Dict)
-            print (type(AGS_Dict))
-            data = json.dumps(data, ensure_ascii=False)
+            data = json.dumps(AGS_Dict, ensure_ascii=False)
             
             return(data)
     else:
         return(f'Your Request {place} does not exist or is wrong written. Please try again :-)')
 
 def bykey(key):
-    AGSLoad = requests.get(AGSSource, timeout=5)
-    #AGSLoad.encoding='utf-8'
+    try:
+        AGSLoad = requests.get(AGSSource, timeout=5)
+    except:
+        info = {'info':'Service temporarly unaivalable, please try later.'}
+        return (info)
     AGSJSON = AGSLoad.json()
     AGSLoad.close()
     for data in AGSJSON['daten']:
         if key in data[0]:
-            data = json.dumps(data, ensure_ascii=False)
-            return(data)
+           AGS_Dict = makeDict(data)
+           data = json.dumps(AGS_Dict, ensure_ascii=False)
+           return(data)
     else:
         return(f'Your Request {key} does not exists or is not numeric. Please try again :-)')
 
 if __name__ == ('__main__'):
     print(byplace('Lentföhrden'))
-    print(type(byplace('Linz am Rhein')))
-    #print(bykey('07138041'))
-    #print (herausgeber())
+    print(bykey('07138041'))
+    print (herausgeber())
    
 
-   #Dictionary aus Liste bauen
+
