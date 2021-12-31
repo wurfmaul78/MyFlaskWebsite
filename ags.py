@@ -12,6 +12,10 @@ def herausgeber():
             Herausgeber = (AGSJSON['metadaten']['herausgebernameLang'])
     return (Herausgeber)
 
+def makeDict(Liste):
+    AGS_Dict = {"Data":Liste,"Source":herausgeber()}
+    return AGS_Dict
+
 
 def byplace(place):
     AGSLoad = requests.get(AGSSource, timeout=5)
@@ -19,7 +23,9 @@ def byplace(place):
     AGSLoad.close()
     for data in AGSJSON['daten']:
         if place in data[1]:
-            print (data)
+            AGS_Dict = makeDict(data)
+            print (AGS_Dict)
+            print (type(AGS_Dict))
             data = json.dumps(data, ensure_ascii=False)
             
             return(data)
