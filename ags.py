@@ -35,6 +35,11 @@ def beschreibung():
 
 
 def byplace(place):
+    if place == ('Bremen') or place == ('Hamburg') or place==('Berlin'):
+        info = ['00000000','Nicht moeglich Die Stadtstaaten Hamburg, Bremen und Berlin suchen sie via Stadt-/Ortsteile bzw. Stadtbezirke.']
+        info = json.dumps(makeDict(info), ensure_ascii=False)
+        return(info)
+    
     try:
         AGSLoad = requests.get(AGSSource, timeout=5)
     except:
@@ -70,8 +75,8 @@ def bykey(key):
 if __name__ == ('__main__'):
     print(byplace('Zehlendorf'))
     print(bykey('07138041'))
-    print (herausgeber())
-    print (beschreibung())
+    print(byplace('Hamburg'))
+
    
 
 
