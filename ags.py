@@ -1,6 +1,7 @@
 #Sourc: https://www.xrepository.de/ api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2011-04-01/download/AGS_2011-04-01.json
 import requests, json
 
+
 AGSSource  = "https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2011-04-01/download/AGS_2011-04-01.json"
 
 def herausgeber():
@@ -17,7 +18,7 @@ def herausgeber():
     return (Herausgeber)
 
 def makeDict(Liste):
-    AGS_Dict = {"Data":Liste,"Source":herausgeber(),"info":"gerhard.posch@outlook.com"}
+    AGS_Dict = {'Data':Liste,'Source':herausgeber(),'info':'gerhard.posch@outlook.com'}
     return AGS_Dict
 
 def beschreibung():
@@ -38,6 +39,8 @@ def byplace(place):
     if place == ('Bremen') or place == ('Hamburg') or place==('Berlin'):
         info = ['00000000','Nicht moeglich Die Stadtstaaten Hamburg, Bremen und Berlin suchen sie via Stadt-/Ortsteile bzw. Stadtbezirke.']
         info = json.dumps(makeDict(info), ensure_ascii=False)
+        info = (makeDict(info))
+       
         return(info)
     
     try:
@@ -74,8 +77,8 @@ def bykey(key):
 
 if __name__ == ('__main__'):
     print(byplace('Zehlendorf'))
-    print(bykey('07138041'))
-    print(byplace('Hamburg'))
+    #print(bykey('07138041'))
+    #print(byplace('Hamburg'))
 
    
 

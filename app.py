@@ -1,4 +1,5 @@
 from flask import Flask, url_for, render_template
+import json
 from markupsafe import escape
 from ags import bykey,byplace
 
@@ -14,17 +15,18 @@ def page_not_found(e):
 def home():
     return render_template("index.html")
 
-@app.route("/place/<place>")
+@app.route("/place/<place>", methods=['GET','POST'])
 def agsplace(place):
     try:
-        return(byplace(place))
+        #return(byplace(place))
+        return (byplace(place))
     except:
         return f"Not possible! Your place {place} not exists or is wrong written. Please try again :-)"
 
-@app.route("/ags/<ags>")
+@app.route("/ags/<ags>", methods=['GET','POST'])
 def agskey(ags):
     try:
-        return(bykey(ags))
+        return (bykey(ags))
     except:
         return f"Not possible! <b>{escape(ags)}</b> is not type integer."
 
