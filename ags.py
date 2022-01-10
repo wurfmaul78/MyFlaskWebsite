@@ -39,7 +39,7 @@ def byplace(place):
     if place == ('Bremen') or place == ('Hamburg') or place==('Berlin'):
         info = ['00000000','Nicht moeglich Die Stadtstaaten Hamburg, Bremen und Berlin suchen sie via Stadt-/Ortsteile bzw. Stadtbezirke.']
         info = json.dumps(makeDict(info), ensure_ascii=False)
-        info = (makeDict(info))
+        info = (info)
        
         return(info)
     
@@ -57,7 +57,12 @@ def byplace(place):
             
             return(data)
     else:
-        return(f'Your Request {place} does not exist or is wrong written. Please try again :-)')
+        info = ('Your Request '+ place +' does not exist or is wrong written. Please try again :-)')
+        infos = ['00000000',info]
+        infos = json.dumps(makeDict(infos), ensure_ascii=False)
+        return (infos)
+
+
 
 def bykey(key):
     try:
@@ -73,10 +78,14 @@ def bykey(key):
            data = json.dumps(AGS_Dict, ensure_ascii=False)
            return(data)
     else:
-        return(f'Your Request {key} does not exists or is not numeric. Please try again :-)')
+        info =('Your Request ' + key + ' does not exists or is not numeric. Please try again :-)')
+        infos = ['00000000',info]
+        infos = json.dumps(infos, ensure_ascii=False)
+        return infos
 
 if __name__ == ('__main__'):
     print(byplace('Zehlendorf'))
+    print(byplace('kinigard'))
     #print(bykey('07138041'))
     #print(byplace('Hamburg'))
 
