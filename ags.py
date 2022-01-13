@@ -85,9 +85,10 @@ def bykey(key):
           
            return(AGS_Dict)
     else:
-        info = str('Your Request ' + key + ' does not exists or is not numeric. Please try again :-)')
-        infos = {}
-        infos['00000000'] = info
+        info = ['00000000',str('Your Request ' + key + ' does not exists or is not numeric. Please try again :-)')]
+             
+        infos = makeDict(info)
+
         return infos
 
 if __name__ == ('__main__'):
