@@ -1,5 +1,5 @@
-from flask import Flask, url_for, render_template
-import json
+from flask import Flask, url_for, render_template,jsonify
+
 from markupsafe import escape
 from ags import bykey,byplace
 
@@ -19,7 +19,7 @@ def home():
 def agsplace(place):
     try:
         #return(byplace(place))
-        return (byplace(place))
+        return jsonify(byplace(place))
     except:
         return f"Not possible! Your place {place} not exists or is wrong written. Please try again :-)"
 
