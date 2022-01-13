@@ -85,17 +85,18 @@ def bykey(key):
           
            return(AGS_Dict)
     else:
-        info =('Your Request ' + key + ' does not exists or is not numeric. Please try again :-)')
-        infos = ['00000000',info]
-    
+        info = str('Your Request ' + key + ' does not exists or is not numeric. Please try again :-)')
+        infos = {}
+        infos['00000000'] = info
         return infos
 
 if __name__ == ('__main__'):
-    print(byplace('Zehlendorf'))
+    #print(byplace('Zehlendorf'))
     print (type(byplace('Zehlendorf')))
     #print(byplace('kinigard'))
     #print(bykey('07138041'))
     #print(byplace('Hamburg'))
+    print (bykey('61756175a'))
 
    
 
