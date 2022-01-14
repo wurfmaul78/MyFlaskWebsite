@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 testreq.py
 snippets/dict_app.py
+googlecloud.txt
