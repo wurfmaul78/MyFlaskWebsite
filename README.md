@@ -5,7 +5,7 @@ REST API which provides the AGS Key (Allgemeiner Gemeinde Schlüssel)
 1. Get AGS Key by Village/City/District
 2. Get Village/City/District by AGS-Key 
 ## Apple
-export FLASK_APP=star
+export FLASK_APP=start
 flask run
 >Run as fast as you can
 
