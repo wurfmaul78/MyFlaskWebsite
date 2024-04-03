@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+testreq.py
+snippets/dict_app.py
+googlecloud.txt

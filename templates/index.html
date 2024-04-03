@@ -2,18 +2,56 @@
 <html>
     <head>
         <title>AGS Rest API by Gerhard Posch</title>
+        <meta name="keywords" content="REST API, API,AGS,Amtlichler Gemeindeschl%C3%BCssel, JSON" />
+        <meta name="description" content="AGS REST API to query the Amtlicher_Gemeindeschl%C3%BCssel">
     </head>
 <body>
-<h1>Welcome to the AGS Rest API!</h1>
-<p></p>
-The AGS is the <a href="https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel">Amtliche Gemeindeschlüssel</a>
-AGS Search is a JSON Rest API to query the AGS by key or place (eg. city, village, county) for Germany.
-<p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Dieses Werk ist lizenziert unter einer <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Namensnennung-Nicht kommerziell 4.0 International Lizenz</a>.</p>
-<br>
-<h2>Endpoints</h2>
+<h1 style="color: #7FB3D5;">Welcome to the AGS Rest API!</h1>
+<p>The AGS is the <a href="https://de.wikipedia.org/wiki/Amtlicher_Gemeindeschl%C3%BCssel">Amtliche Gemeindeschlüssel</a>
+    AGS Search is a JSON Rest API to query the AGS by key or place (eg. city, village, county) for Germany.</p>
 
-<h3>/ags/</h3>
+<h2 style="color: #7FB3D5;">Endpoints</h2>
+
+<h3>/ags/       (query place by AGS-Key)</h3>
+<!-- https://htmlcolorcodes.com/  Reihe 4 -->
+<table border="1" width="400" style="font-family: Verdana, Geneva, Tahoma, sans-serif;border-radius: 20px; border-color: #7FB3D5; border-collapse: collapse;" >
+    <tr><th colspan="2">Example Requests</th></tr>
+    <tr><td>place</td><td>request</td></tr>
+    <tr><td>Linz am Rhein</td><td>/ags/07138041</td></tr>
+    <tr><td>München</td><td>/ags/09162000</td></tr>
+    <tr><td>Bonn</td><td>/ags/05314000</td></tr>
+    </table>
+
 <br>
-<h3>/village/</h3>
+<br>
+<h3>/place/     (query AGS-Key by place</h3>
+<br><b<r>
+<!-- https://htmlcolorcodes.com/  Reihe 4 -->
+<table border="1" width="400" style="font-family: Verdana, Geneva, Tahoma, sans-serif;border-radius: 20px; border-color: #7FB3D5; border-collapse: collapse;" >
+<tr><th colspan="2">Example Requests</th></tr>
+<tr><td>place</td><td>request</td></tr>
+<tr><td>Linz am Rhein</td><td>/place/Linz am Rhein</td></tr>
+<tr><td>München</td><td>/place/München</td></tr>
+<tr><td>Bonn</td><td>/place/Bonn</td></tr>
+<tr><td colspan="2"></td>&nbsp;</tr>
+<tr><td colspan="2">Info: Die Stadtstaaten Hamburg, Bremen und Berlin suchen sie via Stadt-/Ortsteile bzw. Stadtbezirke.</td></tr>
+</table>
+
+
+</p>
+<h3>Sources:</h3>
+
+<a href="https://www.xrepository.de/details/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags#metadata" target="_blank"><pre>AGS Schlüssel Tabelle auf X-REpositotry</pre></a>
+
+</p>
+<p>
+    
+    <p><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons Lizenzvertrag" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />Dieses Werk ist lizenziert unter einer <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Namensnennung-Nicht kommerziell 4.0 International Lizenz</a>.</p>
+    
+
+
+</p>
+
+
 </body>
 </html>
