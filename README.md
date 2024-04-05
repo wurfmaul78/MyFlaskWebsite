@@ -18,6 +18,9 @@ set FLASK_APP=app
 flask run
 >Run as fast as you can
 
+## Docker
+docker run -d -p 5000:5000 myflaskapp
+
 ### Sources 
 [Short FLASK Introduction](https://flask.palletsprojects.com/en/2.0.x/quickstart/)
 
