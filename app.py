@@ -1,14 +1,14 @@
 from flask import Flask, url_for, render_template,jsonify
 
 from markupsafe import escape
-from ags import bykey,byplace
+from sources.ags import bykey,byplace
 
 app = Flask (__name__)
 
 @app.errorhandler(404)
 def page_not_found(e):
     # https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/
-    return render_template('404.html'), 404
+    return render_template('sources/404.html'), 404
 
 
 @app.route("/")
