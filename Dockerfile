@@ -18,7 +18,7 @@ COPY . .
 EXPOSE 5000
 
 # Create a non-root user and switch to it
-RUN adduser -D nonrootuser
-USER nonrootuser
+#RUN adduser -D nonrootuser
+#USER nonrootuser
 
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
