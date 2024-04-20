@@ -2,7 +2,7 @@ import sources.ags
 import pytest
 
 def test_source():
-    assert sources.ags.AGSSource == "https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2022-05-31/download/AGS_2022-05-31.json"
+    assert sources.ags.AGSSource == "https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2024-02-29/download/AGS_2024-02-29.json"
  
 def test_place():
     assert sources.ags.byplace('München') == {'Data': ['09162000', 'München, Landeshauptstadt'], 'Source': 'Statistisches Bundesamt Wiesbaden', 'info': 'gerhard.posch@outlook.com'}

@@ -3,7 +3,8 @@ import requests, json
 from flask import jsonify
 
 
-AGSSource  = "https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2011-04-01/download/AGS_2011-04-01.json"
+#AGSSource  = "https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2011-04-01/download/AGS_2011-04-01.json"
+AGSSource = "https://www.xrepository.de/api/xrepository/urn:de:bund:destatis:bevoelkerungsstatistik:schluessel:ags_2024-02-29/download/AGS_2024-02-29.json"
 
 def herausgeber():
     try:
@@ -38,7 +39,6 @@ def beschreibung():
             beschreibung = (AGSJSON['metadaten']['beschreibung'])
     return (beschreibung)
 
-
 def byplace(place):
     if place == ('Bremen') or place == ('Hamburg') or place==('Berlin'):
         info = ['00000000','Nicht moeglich Die Stadtstaaten Hamburg, Bremen und Berlin suchen sie via Stadt-/Ortsteile bzw. Stadtbezirke.']
@@ -56,6 +56,7 @@ def byplace(place):
     AGSLoad.close()
     for data in AGSJSON['daten']:
         if place in data[1]:
+            
             AGS_Dict = makeDict(data)
             #data = json.dumps(AGS_Dict, ensure_ascii=False)
             data = AGS_Dict
@@ -67,13 +68,10 @@ def byplace(place):
         infos = (makeDict(infos))
         return (infos)
 
-
-
 def bykey(key):
     try:
         AGSLoad = requests.get(AGSSource, timeout=5)
     except:
-        #info = {'info':'Service temporarly unaivalable, please try later.'}
         info = {}
         info['info'] = ('Service temporarly unavailable, pleayse try later')
         return (info)
@@ -92,12 +90,8 @@ def bykey(key):
         return infos
 
 if __name__ == ('__main__'):
-    #print(byplace('Zehlendorf'))
-    print (type(byplace('Zehlendorf')))
-    #print(byplace('kinigard'))
-    #print(bykey('07138041'))
-    #print(byplace('Hamburg'))
-    print (bykey('61756175a'))
+    print (byplace('Bonn'))
+    print (bykey('07138041'))
 
    
 
