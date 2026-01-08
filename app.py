@@ -30,5 +30,5 @@ def agskey(ags):
     except:
         return f"Not possible! <b>{escape(ags)}</b> is not type integer."
 
-if "__name__"  == "__main__":
+if __name__  == "__main__":
     app.run()
